@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kenzo <kenzo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:24:51 by kenzo             #+#    #+#             */
-/*   Updated: 2024/03/26 15:03:06 by kenzo            ###   ########.fr       */
+/*   Created: 2023/11/06 16:27:46 by kenzo             #+#    #+#             */
+/*   Updated: 2024/02/06 17:50:07 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 #include <limits.h>
 
 int	sign_space(const char *str, int *ptr_len)
@@ -59,41 +59,4 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return ((int)result * sign);
-}
-
-void	send_message(int pid, char i)
-{
-	int	bit;
-
-	bit = 0;
-	while (bit < 8)
-	{
-		if ((i & (00000001 << bit)) == 0)
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		bit++;
-		usleep(100);
-	}
-}
-
-int	main(int argc, char *argv[])
-{
-	int	pid;
-	int	i;
-
-	i = 0;
-	if (argc == 3)
-	{
-		pid = ft_atoi(argv[1]);
-		while (argv[2][i] != '\0')
-		{
-			send_message(pid, argv[2][i]);
-			i++;
-		}
-		send_message(pid, '\n');
-	}
-	else
-		printf("Wrong format, try ./client \"server PID\" \"message\"\n");
-	return (0);
 }
