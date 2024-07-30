@@ -6,7 +6,7 @@
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:24:51 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/30 17:14:05 by kmailleu         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:41:00 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	send_message(int pid, char i)
 		else
 			kill(pid, SIGUSR2);
 		bit++;
-		usleep(100);
+		usleep(50);
 	}
 }
 
