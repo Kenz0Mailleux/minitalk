@@ -6,13 +6,13 @@
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:24:56 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/30 16:36:07 by kmailleu         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:16:18 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	signal_handler(int signal)
+static void	signal_handler(int signal)
 {
 	static int	bit;
 	static int	i;
