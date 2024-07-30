@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kenzo <kenzo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:24:51 by kenzo             #+#    #+#             */
-/*   Updated: 2024/03/26 15:03:06 by kenzo            ###   ########.fr       */
+/*   Updated: 2024/07/30 16:36:18 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ int	main(int argc, char *argv[])
 		send_message(pid, '\n');
 	}
 	else
-		printf("Wrong format, try ./client \"server PID\" \"message\"\n");
+		ft_printf("Wrong format, try ./client \"server PID\" \"message\"\n");
 	return (0);
 }

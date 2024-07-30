@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   char_cvrt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:24:54 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/30 16:39:38 by kmailleu         ###   ########.fr       */
+/*   Created: 2024/02/06 16:09:36 by kmailleu          #+#    #+#             */
+/*   Updated: 2024/02/26 16:34:03 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <signal.h>
-# include <sys/types.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
-# include "libft/ft_printf.h"
+int	from_char(int c)
+{
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
+}
 
-#endif
+int	from_str(char *str)
+{
+	if (str == NULL)
+		return (ft_putstr(("(null)")));
+	return (ft_putstr(str));
+}

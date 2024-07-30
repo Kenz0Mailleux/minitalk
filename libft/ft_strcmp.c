@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:24:54 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/30 16:39:38 by kmailleu         ###   ########.fr       */
+/*   Created: 2024/04/03 14:58:35 by kenzo             #+#    #+#             */
+/*   Updated: 2024/06/13 16:56:47 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <signal.h>
-# include <sys/types.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
-# include "libft/ft_printf.h"
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ptr_cvrt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:24:54 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/30 16:39:38 by kmailleu         ###   ########.fr       */
+/*   Created: 2024/02/15 18:08:48 by kmailleu          #+#    #+#             */
+/*   Updated: 2024/02/26 16:42:52 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <signal.h>
-# include <sys/types.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
-# include "libft/ft_printf.h"
+int	from_ptr(unsigned long long nbr)
+{
+	int		len;
+	char	*nbr_str;
 
-#endif
+	len = 0;
+	if (write(1, "0x", 2) == -1)
+		return (-1);
+	len += 2;
+	nbr_str = to_hexa(nbr, "0123456789abcdef");
+	if (nbr_str == NULL)
+		return (-1);
+	if (nbr == 0)
+	{
+		ft_putchar('0');
+		len += 1;
+	}
+	else
+		len += ft_putstr(nbr_str);
+	free(nbr_str);
+	return (len);
+}
