@@ -6,7 +6,7 @@
 /*   By: kmailleu <kmailleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:24:51 by kenzo             #+#    #+#             */
-/*   Updated: 2024/07/31 14:05:50 by kmailleu         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:46:07 by kmailleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char *argv[])
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
+		if (pid <= 1)
+			return (ft_printf("Forbiden PID!!!"), 1);
 		while (argv[2][i] != '\0')
 		{
 			send_message(pid, argv[2][i]);
